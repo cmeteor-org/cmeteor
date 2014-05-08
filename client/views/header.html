@@ -10,11 +10,20 @@
             <a class="navbar-brand" href="#">Forum</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-navbar-collapse">
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-            </form>
+            {{#if user}}
+                <p>hello, {{user}}</p>
+            {{/if}}
+
+            {{#unless user}}
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a >注册</a>
+                    </li>
+                    <li>
+                        <a >登录</a>
+                    </li>
+                </ul>
+            {{/unless}}
         </div>
     </nav>
 </template>

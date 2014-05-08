@@ -1,5 +1,11 @@
 Template.index.helpers({
     posts: function(){
-        return Posts.find().fetch();
+        var posts = [];
+        Posts.find().fetch().forEach(function(post){
+            post.fromNow = moment(post.date).fromNow();
+            posts.push(post);
+        });
+
+        return posts;
     }
 });
