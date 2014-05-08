@@ -1,0 +1,22 @@
+<template name="index">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <table class="table table-bordered">
+                <!-- <thead>
+                    <tr>
+                        <td>标题</td>
+                    </tr>
+                </thead> -->
+                <tbody>
+                    {{#each posts}}
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>{{author}}</td>
+                        <td>{{date}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>    
+            </table>
+        </div>
+    </div>
+</template>
