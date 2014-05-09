@@ -1,29 +1,29 @@
 <template name="header">
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Forum</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
-            {{#if user}}
-                <p>hello, {{user}}</p>
-            {{/if}}
+  <nav class="navbar navbar-default " role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Forum</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+      {{#if user}}
+        <p>hello, {{user}}</p>
+      {{/if}}
 
-            {{#unless user}}
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a >注册</a>
-                    </li>
-                    <li>
-                        <a >登录</a>
-                    </li>
-                </ul>
-            {{/unless}}
-        </div>
-    </nav>
+      {{#unless user}}
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="{{pathFor 'signup'}}">注册</a>
+          </li>
+          <li>
+            <a href="{{pathFor 'login'}}">登录</a>
+          </li>
+        </ul>
+      {{/unless}}
+    </div>
+  </nav>
 </template>
