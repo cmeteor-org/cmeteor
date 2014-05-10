@@ -1,5 +1,5 @@
 <template name="header">
-  <nav class="navbar navbar-default " role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -10,20 +10,25 @@
       <a class="navbar-brand" href="{{pathFor 'index'}}">Forum</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-navbar-collapse">
-      {{#if user}}
-        <p>hello, {{user}}</p>
+      {{#if currentUser}}
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="{{pathFor 'index'}}">{{currentUser.username}}</a>
+        </li>
+        <li>
+          <a href="#" id="a-logout">退出</a>
+        </li>
+      </ul>
+      {{else}}
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="{{pathFor 'signup'}}">注册</a>
+        </li>
+        <li>
+          <a href="{{pathFor 'login'}}">登录</a>
+        </li>
+      </ul>
       {{/if}}
-
-      {{#unless user}}
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="{{pathFor 'signup'}}">注册</a>
-          </li>
-          <li>
-            <a href="{{pathFor 'login'}}">登录</a>
-          </li>
-        </ul>
-      {{/unless}}
     </div>
   </nav>
 </template>

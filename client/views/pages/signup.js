@@ -1,9 +1,9 @@
 Template.signup.events({
     'click #btn-signup-reset': function(e){
         e.preventDefault();
-        $('#username')[0].value = '';
-        $('#email')[0].value = '';
-        $('#password')[0].value = '';
+        $('#username').val('');
+        $('#email').val('');
+        $('#password').val('');
     },
     'click #btn-signup': function(e){
         e.preventDefault();
