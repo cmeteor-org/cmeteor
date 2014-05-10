@@ -7,3 +7,5 @@ standard-app-packages
 iron-router
 bootstrap-3
 moment
+accounts-base
+accounts-password
