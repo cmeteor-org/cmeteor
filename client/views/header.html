@@ -13,6 +13,9 @@
       {{#if currentUser}}
       <ul class="nav navbar-nav navbar-right">
         <li>
+          <a id="a-submit" href="#">发布</a>
+        </li>
+        <li class="active">
           <a href="{{pathFor 'index'}}">{{currentUser.username}}</a>
         </li>
         <li>

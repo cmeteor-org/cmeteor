@@ -2,6 +2,9 @@ Template.header.events({
     'click #a-logout': function(e){
         e.preventDefault();
         Meteor.logout();
-        Router.go('/');
+    },
+    'click #a-submit': function(e){
+        e.preventDefault();
+        Router.go('submit')
     }
 })

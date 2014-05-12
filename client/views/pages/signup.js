@@ -19,7 +19,7 @@ Template.signup.events({
             if(err){
                 console.log(err);
             }else{
-                Router.go('/');
+                Router.go('index');
             }
         })
 
