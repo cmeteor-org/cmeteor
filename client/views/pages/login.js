@@ -11,6 +11,7 @@ Template.login.events({
         Meteor.loginWithPassword(username, password, function(err){
             if(err){
                 console.log(err);
+                throwError('输入有误！请重新输入！')
             }else{
                 Router.go('index');
             }

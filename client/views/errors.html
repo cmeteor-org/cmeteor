@@ -1,0 +1,14 @@
+<template name="errors">
+  <div class="text-center">
+  {{#each errors}}
+    {{> error}}
+  {{/each}}
+  </div>
+</template>
+
+<template name="error">
+  <div>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>错误！</strong> {{msg}}
+  </div>
+</template>

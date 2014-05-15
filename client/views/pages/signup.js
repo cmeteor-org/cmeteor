@@ -11,6 +11,10 @@ Template.signup.events({
         var email = $('#email').val();
         var password = $('#password').val();
 
+        if(!password){
+            return throwError('请输入密码！');
+        }
+
         Accounts.createUser({
             username: username,
             email: email,
@@ -18,6 +22,7 @@ Template.signup.events({
         }, function(err){
             if(err){
                 console.log(err);
+                throwError('创建用户失败！');
             }else{
                 Router.go('index');
             }
