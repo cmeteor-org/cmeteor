@@ -1,23 +1,14 @@
 <template name="index">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <div class="table-responsive">
-        <table class="table table-hover">
-          <!-- <thead>
-          <tr>
-            <td>标题</td>
-          </tr>
-        </thead> -->
-          <tbody>
-            {{#each posts}}
-            <tr>
-              <td>{{title}}</td>
-              <td>{{author}}</td>
-              <td>{{fromNow}}</td>
-            </tr>
-            {{/each}}
-          </tbody>
-        </table>
+      <div class="posts">
+          {{#each posts}}
+          <div class="row post">
+            <span class="col-md-6">{{title}}</span>
+            <span class="col-md-2">{{author}}</span>
+            <span class="col-md-2">{{fromNow}}</span>
+          </div>
+          {{/each}}
       </div>
     </div>
   </div>

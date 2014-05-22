@@ -1,0 +1,12 @@
+.posts {
+
+}
+
+.post {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.post:hover {
+    background-color: #e7e7e7;
+}
