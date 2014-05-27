@@ -1,0 +1,15 @@
+<template name="post">
+  <div class="col-md-10 col-md-offset-1">
+    {{title}}
+    <div class="panel panel-default">
+      {{#with post}}
+      <div class="panel-heading">
+        <h3 class="panel-title">{{title}}</h3>
+      </div>
+      <div class="panel-body">
+          {{content}}
+      </div>
+      {{/with}}
+    </div>
+  </div>
+</template>

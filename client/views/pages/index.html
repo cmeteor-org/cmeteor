@@ -3,7 +3,7 @@
     <div class="col-md-10 col-md-offset-1">
       <div class="posts">
           {{#each posts}}
-          <div class="row post">
+          <div class="row post" url="/post/{{_id}}">
             <span class="col-md-6">{{title}}</span>
             <span class="col-md-2">{{author}}</span>
             <span class="col-md-2">{{fromNow}}</span>
