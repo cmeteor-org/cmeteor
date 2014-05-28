@@ -10,3 +10,7 @@
 .post:hover {
     background-color: #f8f8f8;
 }
+
+textarea {
+    margin-bottom: 1em;
+}
