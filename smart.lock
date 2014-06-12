@@ -5,7 +5,8 @@
       "iron-router": {},
       "bootstrap-3": {},
       "moment": {},
-      "iron-router-progress": {}
+      "iron-router-progress": {},
+      "kadira": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/Multiply/iron-router-progress.git",
         "tag": "v0.4.0",
         "commit": "02f78bdaca4c13d59f548d5a0ce83408c34b56d1"
+      },
+      "kadira": {
+        "git": "https://github.com/meteorhacks/kadira.git",
+        "tag": "v2.2.0",
+        "commit": "0f0f6b90a80f2be3980154977fe19f84cc535cf8"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

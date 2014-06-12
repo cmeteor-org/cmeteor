@@ -3,6 +3,7 @@
     "iron-router": {},
     "bootstrap-3": {},
     "moment": {},
-    "iron-router-progress": {}
+    "iron-router-progress": {},
+    "kadira": {}
   }
 }
