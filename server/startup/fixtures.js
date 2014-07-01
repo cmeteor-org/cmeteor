@@ -38,4 +38,14 @@ if(Meteor.users.find().count() === 0){
         author: hello.username,
         submited: new Date().getTime()
     });
+
+    for(var i=0; i<20; i++){
+        Posts.insert({
+            title: 'Test ' + i,
+            content: 'Test content ' + i,
+            userId: hello._id,
+            author: hello.username,
+            submited: new Date().getTime()
+        });
+    }
 }
