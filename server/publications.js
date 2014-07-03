@@ -2,12 +2,17 @@ Meteor.publish('posts', function(page){
     if(!parseInt(page) || page < 0)
         page = 0;
     return Posts.find({},{
-        limit: 10,
-        skip: 10*page
+        limit: SHOW_COUNT,
+        skip: SHOW_COUNT*page
     });
 });
 
 Meteor.publish('post', function(id){
+    // return Posts.find(id);
+    Posts.update(
+        {_id: id},
+        {$inc: {visitedCount: 1}}
+    );
     return Posts.find(id);
 });
 

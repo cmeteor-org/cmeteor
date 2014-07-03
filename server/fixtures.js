@@ -1,4 +1,4 @@
-if(Meteor.users.find().count() === 0){
+var initData = function(){
     console.log('初始化测试数据');
 
     Accounts.createUser({
@@ -20,6 +20,7 @@ if(Meteor.users.find().count() === 0){
         content: '今天天气不错',
         userId: demo._id,
         author: demo.username,
+        visitedCount: 0,
         submited: new Date().getTime()
     });
 
@@ -28,6 +29,7 @@ if(Meteor.users.find().count() === 0){
         content: '明天天气不错',
         userId: hello._id,
         author: hello.username,
+        visitedCount: 0,
         submited: new Date().getTime()
     });
 
@@ -45,7 +47,13 @@ if(Meteor.users.find().count() === 0){
             content: 'Test content ' + i,
             userId: hello._id,
             author: hello.username,
+            visitedCount: i,
             submited: new Date().getTime()
         });
     }
+}
+
+if(process.env.NODE_ENV == 'development'){
+    if(Meteor.users.find().count() == 0)
+        initData();
 }
