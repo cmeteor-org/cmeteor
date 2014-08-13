@@ -1,16 +1,15 @@
 <template name="index">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
       <div class="posts">
-          {{#each posts}}
-          <div class="row post" url="/post/{{_id}}">
-            <span class="col-md-2">{{visitedCount}}</span>
-            <span class="col-md-4">{{title}}</span>
-            <span class="col-md-2">{{author}}</span>
-            <span class="col-md-2">{{fromNow}}</span>
-          </div>
-          {{/each}}
+        {{#each posts}}
+        <div class="row post" url="/post/{{_id}}">
+          <span class="col-md-1"></span>
+          <span class="col-md-6">{{title}}</span>
+          <span class="col-md-2">{{author}}</span>
+          <span class="col-md-1">{{fromNow}}</span>
+          <span class="col-md-1">{{visitedCount}}</span>
+        </div>
+        {{/each}}
       </div>
-    </div>
   </div>
 </template>
