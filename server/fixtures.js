@@ -3,13 +3,13 @@ var initData = function(){
 
     Accounts.createUser({
         username: 'demo',
-        email: 'demo@demo.com',
-        password: '123456'
+        email: 'demo@cmeteor.org',
+        password: 'cmeteor'
     });
     Accounts.createUser({
         username: 'hello',
-        email: 'hello@demo.com',
-        password: '123456'
+        email: 'hello@cmeteor.org',
+        password: 'cmeteor'
     });
 
     var demo = Meteor.users.findOne({'username': 'demo'});
