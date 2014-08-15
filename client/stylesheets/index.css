@@ -1,16 +1,34 @@
-.posts {
-
+body {
+  font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
+  font-size: 18px;
+  /*border: 1px solid LightGrey;*/
 }
-
-.post {
-    text-align: center;
-    padding: 10px 0;
+a {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+  color: #333;
 }
-
-.post:hover {
-    background-color: #f8f8f8;
+a:visited {
+  color: #888;
 }
-
-textarea {
-    margin-bottom: 1em;
+.post-row {
+  height: 50px;
+  margin-top: 15px;
+}
+a[class="post-title"] {
+  font-size: 20px;
+  line-height: 25px;
+  /*max-width: 80%;*/
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: bottom;
+}
+code {
+  font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+}
+small {
+  font-style: italic;
+  color: #999;
+  font-size: 15px;
 }

@@ -1,6 +1,7 @@
 <template name="layout">
   {{> yield region="header"}}
   <div class="content">
-  {{> yield}}
+      {{> yield}}
   </div>
+  {{> yield region="footer"}}
 </template>

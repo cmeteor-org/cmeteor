@@ -5,6 +5,12 @@ Template.header.events({
     },
     'click #a-submit': function(e){
         e.preventDefault();
-        Router.go('submit')
+        Router.go('submit');
+    },
+    'mouseenter li': function(e){
+        $(e.target).addClass('active');
+    },
+    'mouseleave li': function(e){
+        $(e.target).removeClass('active');
     }
 })

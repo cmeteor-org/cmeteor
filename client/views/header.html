@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{pathFor 'index'}}">Meteor</a>
+      <a class="navbar-brand" href="{{pathFor 'index'}}" id="a-title">Meteor</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-navbar-collapse">
       {{#if currentUser}}
@@ -18,7 +18,7 @@
         <li>
           <a id="a-submit" href="#">通知 &nbsp; <i>10</i></a>
         </li>
-        <li class="active">
+        <li id="li-username">
           <a href="{{pathFor 'index'}}">{{currentUser.username}}</a>
         </li>
         <li>

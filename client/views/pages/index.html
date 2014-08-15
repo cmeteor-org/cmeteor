@@ -1,15 +1,19 @@
 <template name="index">
-  <div class="row">
-      <div class="posts">
-        {{#each posts}}
-        <div class="row post" url="/post/{{_id}}">
-          <span class="col-md-1"></span>
-          <span class="col-md-6">{{title}}</span>
-          <span class="col-md-2">{{author}}</span>
-          <span class="col-md-1">{{fromNow}}</span>
-          <span class="col-md-1">{{visitedCount}}</span>
-        </div>
-        {{/each}}
-      </div>
+  <div class="col-md-2 col-xs-1"></div>
+  <div class="col-md-8 col-xs-10">
+    {{#each posts}}
+    <div class="post-row">
+      <a class="post-title" href="/post/{{_id}}">
+          {{title}}
+        </a>
+      <br/>
+      <small>
+        <span class="">{{author}} 发表于 {{fromNow}}</span>
+        <span class="">已被浏览 {{visitedCount}} 次</span>
+      </small>
+    </div>
+    {{/each}}
+  </div>
+  <div>
   </div>
 </template>
