@@ -16,5 +16,9 @@ Template.login.events({
                 Router.go('index');
             }
         })
+    },
+    'keydown': function(e){
+        if(e.keyCode == 13)
+            $('#btn-login').trigger('click')
     }
 })

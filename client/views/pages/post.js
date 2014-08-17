@@ -2,25 +2,33 @@ Template.post.helpers({
     post: function(){
         var post = Posts.findOne();
         if(!post)
-            Router.go('notFound');
-        return Posts.findOne();
+            return Router.go('notFound');
+        post.fromNow = moment(post.submited).fromNow();
+        return post;
     },
     comments: function(){
-        return Comments.find().fetch();
+        var comments = Comments.find().fetch();
+
+        for(var i in comments){
+            var comment = comments[i];
+            comment.fromNow = moment(comment.submited).fromNow();
+        }
+        return comments;
     }
 });
 
 Template.post.events({
     'click #btn-submit': function(e){
-        var content = $('#ta-comment').val();
+        var content = $('#ta-comment');
 
         var comment = {
             postId: Posts.findOne()._id,
-            content: content
+            content: content.val()
         };
 
         Meteor.call('commentSubmit', comment, function(err, commentId){
             console.log('comment ok ' + commentId);
+            content.val('');
         });
     }
 })

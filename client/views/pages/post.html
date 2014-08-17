@@ -1,42 +1,40 @@
 <template name="post">
-  <div class="col-md-10 col-md-offset-1">
-    {{title}}
+  <div class="col-md-2 col-xs-1"></div>
+  <div class="col-md-8 col-xs-10">
     {{#with post}}
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">{{title}}</h3>
-      </div>
-      <div class="panel-body">
-        {{content}}
-      </div>
+    <div class="post-header">
+      {{title}}
+      <br/>
+      <small>
+        <span class="">{{author}} 发表于 {{fromNow}}</span>
+        <span class="">已被浏览 {{visitedCount}} 次</span>
+      </small>
     </div>
-    {{/with}}
-
-    {{#if comments}}
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        回复
-      </div>
-      <ul class="list-group">
-        {{#each comments}}
-        <li class="list-group-item">{{author}} : {{content}}</li>
-        {{/each}}
-      </ul>
+    <div class="post-body">
+      <p class="mk">
+        {{#markdown}}{{content}}{{/markdown}}
+      </p>
     </div>
-    {{/if}}
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        发表回复
+    {{/with}} {{#if comments}}
+    <div class="">
+      {{#each comments}}
+      <div class="comment-body">
+        <p class="mk">{{#markdown}}{{content}}{{/markdown}}</p>
+        <br/>
+        <small>
+          <span class="">{{author}} 回复于 {{fromNow}}</span>
+        </small>
       </div>
-      <div class="panel-body">
+      {{/each}}
+    </div>
+    {{/if}} {{#if currentUser}}
+    <div class="">
         <fieldset>
           <textarea id="ta-comment" class="form-control" rows="8"></textarea>
         </fieldset>
 
-        <button id="btn-submit" type="button" class="btn btn-default">发表</button>
-      </div>
+        <button id="btn-submit" type="button" class="btn btn-default">回复</button>
     </div>
-
+    {{/if}}
   </div>
 </template>
