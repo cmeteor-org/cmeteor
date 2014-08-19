@@ -1,6 +1,5 @@
 <template name="post">
-  <div class="col-md-2 col-xs-1"></div>
-  <div class="col-md-8 col-xs-10">
+  <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
     {{#with post}}
     <div class="post-header">
       {{title}}
@@ -9,6 +8,10 @@
         <span class="">{{author}} 发表于 {{fromNow}}</span>
         <span class="">已被浏览 {{visitedCount}} 次</span>
       </small>
+      <!-- <button id="btn-edit" type="button" class="btn btn-default pull-right">编辑</button> -->
+      {{#if equal currentUser._id userId}}
+        <a href="/post/edit/{{_id}}" class="pull-right">编辑</a>
+      {{/if}}
     </div>
     <div class="post-body">
       <p class="mk">
@@ -30,7 +33,7 @@
     {{/if}} {{#if currentUser}}
     <div class="">
         <fieldset>
-          <textarea id="ta-comment" class="form-control" rows="8"></textarea>
+          <textarea class="form-control" rows="8"></textarea>
         </fieldset>
 
         <button id="btn-submit" type="button" class="btn btn-default">回复</button>

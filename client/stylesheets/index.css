@@ -32,3 +32,6 @@ small {
 span:before {
   content: "• "
 }
+textarea {
+    resize: vertical;
+}

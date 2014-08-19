@@ -3,24 +3,20 @@
   font-size: 20px;
   margin-bottom: 20px;
   padding: 5px;
-  border-bottom: 2px LightGrey solid;
+  border-bottom: 2px LightGrey dotted;
   color: #333;
 }
 
 .post-body {
-  padding: 10px;
+  padding: 10px 10px 20px 10px;
   margin-bottom: 20px;
-  border-bottom: 2px LightGrey solid;
+  /*border-bottom: 2px LightGrey solid;*/
 }
 
 .comment-body {
   padding: 20px;
   margin-bottom: 10px;
-  border-bottom: 2px LightGrey dashed;
-}
-
-#ta-comment {
-    resize: vertical;
+  border-top: 2px LightGrey dashed;
 }
 
 .mk {
@@ -33,10 +29,8 @@
 
 .mk H2 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
-    margin-bottom: 60px;
-    margin-bottom: 40px;
     padding: 5px;
-    border-bottom: 2px LightGrey solid;
+    /*border-bottom: 2px LightGrey solid;*/
     width: 90%;
     line-height: 150%;
     color: #666666;
@@ -45,9 +39,7 @@
 
 .mk H3 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
-    margin-top: 40px;
-    margin-bottom: 30px;
-    border-bottom: 1px LightGrey solid;
+    /*border-bottom: 1px LightGrey solid;*/
     width: 80%;
     line-height: 150%;
     color: #666666;
@@ -55,9 +47,7 @@
 
 .mk H4 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
-    margin-top: 40px;
-    margin-bottom: 30px;
-    border-bottom: 1px LightGrey solid;
+    /*border-bottom: 1px LightGrey solid;*/
     width: 80%;
     line-height: 150%;
     color: #666666;

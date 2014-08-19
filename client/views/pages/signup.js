@@ -11,10 +11,16 @@ Template.signup.events({
         var email = $('#email').val();
         var password = $('#password').val();
 
+        if(!username){
+            return throwError('请输入用户名！');
+        }
+        if(!email){
+            return throwError('请输入邮箱！');
+        }
         if(!password){
             return throwError('请输入密码！');
         }
-
+        
         Accounts.createUser({
             username: username,
             email: email,
