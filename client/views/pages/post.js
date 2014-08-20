@@ -19,7 +19,7 @@ Template.post.helpers({
 
 Template.post.events({
     'click #btn-submit': function(e){
-        var content = $('#ta-comment');
+        var content = $('#ta-post-comment');
 
         var comment = {
             postId: Posts.findOne()._id,

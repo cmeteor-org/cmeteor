@@ -1,5 +1,11 @@
-Template.submit.events({
-    'click #btn-post-submit': function(e){
+Template.postEdit.helpers({
+    post: function(){
+        return Posts.findOne();
+    }
+});
+
+Template.postEdit.events({
+    'click #btn-post-edit': function(e){
         e.preventDefault();
         clearErrors();
         var title = $('#ta-post-title').val();
@@ -9,12 +15,11 @@ Template.submit.events({
         if(!validStringLength(content, 10, 10000, throwError.bind(null, '正文的长度应该在10-10000之间！')))
             return false;
 
-        Meteor.call('postSubmit', title, content, function(err, postId){
+        var postId = Posts.findOne()._id;
+        Meteor.call('postEdit', title, content, postId, function(err){
             if(err)
                 return throwError(err.reason);
-            Router.go('index');
+            Router.go('post', {id: postId});
         });
     }
 })
-
-

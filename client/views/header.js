@@ -5,7 +5,7 @@ Template.header.events({
     },
     'click #a-submit': function(e){
         e.preventDefault();
-        Router.go('submit');
+        Router.go('postSubmit');
     },
     'mouseenter li': function(e){
         $(e.target).addClass('active');
