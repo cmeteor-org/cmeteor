@@ -18,17 +18,16 @@ Template.post.helpers({
 });
 
 Template.post.events({
-    'click #btn-submit': function(e){
-        var content = $('#ta-post-comment');
+    'click #btn-comment-submit': function(e){
+        e.preventDefault();
+        clearErrors();
+        var el = $('#ta-post-comment');
 
-        var comment = {
-            postId: Posts.findOne()._id,
-            content: content.val()
-        };
-
-        Meteor.call('commentSubmit', comment, function(err, commentId){
-            console.log('comment ok ' + commentId);
-            content.val('');
+        Meteor.call('commentSubmit', el.val(), Posts.findOne()._id, function(err){
+            if(err){
+                return throwError(err.reason);
+            }
+            el.val('');
         });
     }
 })

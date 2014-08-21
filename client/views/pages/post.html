@@ -18,7 +18,8 @@
         {{#markdown}}{{content}}{{/markdown}}
       </p>
     </div>
-    {{/with}} {{#if comments}}
+    {{/with}} 
+    {{#if comments}}
     <div class="">
       {{#each comments}}
       <div class="comment-body">
@@ -30,13 +31,15 @@
       </div>
       {{/each}}
     </div>
-    {{/if}} {{#if currentUser}}
+    {{/if}} 
+    {{#if currentUser}}
     <div class="">
+        {{> errors}}
         <fieldset>
           <textarea id="ta-post-comment" class="form-control" rows="8"></textarea>
         </fieldset>
 
-        <button id="btn-submit" type="button" class="btn btn-default">回复</button>
+        <button id="btn-comment-submit" type="button" class="btn btn-default">回复</button>
     </div>
     {{/if}}
   </div>
