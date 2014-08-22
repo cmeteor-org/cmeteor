@@ -28,7 +28,9 @@ var initData = function(){
         userId: demo._id,
         author: demo.username,
         visitedCount: 0,
-        submited: new Date().getTime()
+        submited: new Date().getTime(),
+        lastModified: new Date().getTime(),
+        commentedCount: 0
     });
 
     Posts.insert({
@@ -44,7 +46,9 @@ var initData = function(){
         userId: hello._id,
         author: hello.username,
         visitedCount: 0,
-        submited: new Date().getTime()
+        submited: new Date().getTime(),
+        lastModified: new Date().getTime(),
+        commentedCount: 0
     });
 
     Comments.insert({
@@ -54,6 +58,7 @@ var initData = function(){
         author: hello.username,
         submited: new Date().getTime()
     });
+    Posts.update(postId, {$inc: {commentedCount: 1}});
 
     for(var i=0; i<20; i++){
         Posts.insert({
@@ -62,7 +67,9 @@ var initData = function(){
             userId: hello._id,
             author: hello.username,
             visitedCount: i,
-            submited: new Date().getTime()
+            submited: new Date().getTime(),
+            lastModified: new Date().getTime(),
+            commentedCount: 0
         });
     }
 }

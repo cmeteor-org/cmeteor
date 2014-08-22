@@ -1,7 +1,7 @@
 Template.index.helpers({
     posts: function(){
         var posts = [];
-        Posts.find({},{sort: {submited: -1}}).map(function(post){
+        Posts.find({},{sort: {lastModified: -1}}).map(function(post){
             post.fromNow = moment(post.submited).fromNow();
             posts.push(post);
         });
