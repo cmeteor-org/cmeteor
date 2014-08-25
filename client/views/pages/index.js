@@ -7,16 +7,20 @@ Template.index.helpers({
         });
 
         return posts;
+    },
+    haveMore: function(){
+        var havaMore = false;
+        if(Session.get('LIMIT') === Posts.find().count())
+            havaMore = true;
+        return havaMore;
     }
 });
 
 Template.index.events({
-    // 'click .post': function(e){
-    //     e.preventDefault();
-    //     var el = e.target;
-    //     if(el.nodeName === "SPAN"){
-    //         el = el.parentNode;
-    //     }
-    //     Router.go(el.getAttribute('url'));
-    // }
+    'click #div-have-more': function(e){
+        e.preventDefault();
+        var limit = Session.get('LIMIT') + root.INC;
+        Session.set('LIMIT', limit);
+        Meteor.subscribe('posts', limit);
+    }
 })

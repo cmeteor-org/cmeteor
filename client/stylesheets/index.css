@@ -33,5 +33,18 @@ span:before {
   content: "• "
 }
 textarea {
-    resize: vertical;
+  resize: vertical;
+}
+#div-have-more {
+  display: block;
+  background: rgba(0, 0, 0, 0);
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#div-have-more:hover {
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.1);
 }

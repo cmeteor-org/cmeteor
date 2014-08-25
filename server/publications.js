@@ -1,9 +1,9 @@
-Meteor.publish('posts', function(page){
-    if(!parseInt(page) || page < 0)
-        page = 0;
+Meteor.publish('posts', function(limit){
+    if(!parseInt(limit) || limit < 0)
+        limit = 0;
     return Posts.find({},{
-        limit: SHOW_COUNT,
-        skip: SHOW_COUNT*page
+        limit: limit,
+        sort: {lastModified: -1}
     });
 });
 
