@@ -1,6 +1,8 @@
 .post-header {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
   font-size: 20px;
+  line-height: 26px;
+  font-weight: bold;
   margin-bottom: 20px;
   padding: 5px;
   border-bottom: 2px LightGrey dotted;
@@ -21,30 +23,20 @@
 }
 .mk {
   word-wrap: break-word;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+/*  font-size: 16px;
+  line-height: 26px;*/
 }
 .mk H1 {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+  /*font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;*/
 }
 .mk H2 {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
-  padding: 5px;
-  /*border-bottom: 2px LightGrey solid;*/
-  width: 90%;
-  line-height: 150%;
   color: #666666;
 }
 .mk H3 {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
-  /*border-bottom: 1px LightGrey solid;*/
-  width: 80%;
-  line-height: 150%;
   color: #666666;
 }
 .mk H4 {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
-  /*border-bottom: 1px LightGrey solid;*/
-  width: 80%;
-  line-height: 150%;
   color: #666666;
 }
 .mk li {
@@ -67,7 +59,7 @@
 }
 .mk code {
   font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
-  font-size: 90%;
+  /*font-size: 90%;*/
 }
 .mk a {
   text-decoration: none;
