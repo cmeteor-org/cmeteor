@@ -9,17 +9,15 @@ Template.index.helpers({
         return posts;
     },
     haveMore: function(){
-        var havaMore = false;
-        if(Session.get('LIMIT') === Posts.find().count())
-            havaMore = true;
-        return havaMore;
+        return !Session.get('LIMIT') ||  Session.get('LIMIT') <= Posts.find().count();
     }
 });
 
 Template.index.events({
     'click #div-have-more': function(e){
         e.preventDefault();
-        var limit = Session.get('LIMIT') + root.INC;
+        var limit = Session.get('LIMIT') || root.LIMIT;
+        limit += root.INC;
         Session.set('LIMIT', limit);
         Meteor.subscribe('posts', limit);
     }

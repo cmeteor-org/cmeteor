@@ -1,6 +1,6 @@
 Template.post.helpers({
     post: function(){
-        var post = Posts.findOne();
+        var post = Posts.findOne(location.pathname.replace(/\/post\//g, ''));
         if(!post)
             return Router.go('notFound');
         post.fromNow = moment(post.submited).fromNow();

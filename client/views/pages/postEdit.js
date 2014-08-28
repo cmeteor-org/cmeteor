@@ -1,6 +1,6 @@
 Template.postEdit.helpers({
     post: function(){
-        return Posts.findOne();
+        return Posts.findOne(location.pathname.replace(/\/post\/edit\//g, ''));
     }
 });
 

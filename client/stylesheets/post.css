@@ -2,7 +2,6 @@
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
   font-size: 20px;
   line-height: 26px;
-  font-weight: bold;
   margin-bottom: 20px;
   padding: 5px;
   border-bottom: 2px LightGrey dotted;
@@ -11,13 +10,18 @@
 .post-body {
   padding: 10px 10px 20px 10px;
   margin-bottom: 20px;
-  /*border-bottom: 4px LightGrey double;*/
+  border-bottom: 4px LightGrey double;
 }
+
 .comment-body {
-  padding: 20px;
-  margin-bottom: 10px;
-  border-top: 2px LightGrey dashed;
+  padding: 10px 20px;
+  border-bottom: 2px LightGrey dashed;
 }
+
+.comment-body:last-child {
+  border-bottom: 0px;
+}
+
 #ta-post-comment {
   margin-bottom: 10px;
 }

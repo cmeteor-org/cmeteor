@@ -3,7 +3,7 @@
       {{#each posts}}
       <div class="post-row">
         <a class="post-title" href="/post/{{_id}}">
-          {{title}}
+          <strong>{{title}}</strong>
         </a>
         <br/>
         <small>
@@ -15,7 +15,7 @@
       {{/each}}
       {{#if haveMore}}
         <div id="div-have-more">
-          加载
+          ...
         </div>
       {{/if}}
     </div>
