@@ -1,9 +1,0 @@
-{
-  "packages": {
-    "iron-router": {},
-    "bootstrap-3": {},
-    "moment": {},
-    "iron-router-progress": {},
-    "kadira": {}
-  }
-}
