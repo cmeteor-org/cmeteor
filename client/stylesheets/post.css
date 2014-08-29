@@ -31,17 +31,8 @@
 /*  font-size: 16px;
   line-height: 26px;*/
 }
-.mk H1 {
-  /*font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;*/
-}
-.mk H2 {
-  color: #666666;
-}
-.mk H3 {
-  color: #666666;
-}
-.mk H4 {
-  color: #666666;
+.mk h1, h2, h3, h4 {
+  font-family:"Helvetica Neue","Microsoft YaHei","SimHei";
 }
 .mk li {
   margin-left: 10px;

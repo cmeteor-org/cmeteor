@@ -5,12 +5,13 @@
         <a class="post-title" href="/post/{{_id}}">
           <strong>{{title}}</strong>
         </a>
-        <br/>
+      <div>
         <small>
           <span>{{author}} 发表于 {{fromNow}}</span>
           <span>浏览 {{visitedCount}} 次</span>
           <span>评论 {{commentedCount}} 次</span>
         </small>
+      </div>
       </div>
       {{/each}}
       {{#if haveMore}}
