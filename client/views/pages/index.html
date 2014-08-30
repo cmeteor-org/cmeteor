@@ -1,17 +1,17 @@
 <template name="index">
     <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
       {{#each posts}}
-      <div class="post-row">
-        <a class="post-title" href="/post/{{_id}}">
+      <div class="index-row">
+        <a class="index-title" href="/post/{{_id}}">
           <strong>{{title}}</strong>
         </a>
-      <div>
-        <small>
-          <span>{{author}} 发表于 {{fromNow}}</span>
-          <span>浏览 {{visitedCount}} 次</span>
-          <span>评论 {{commentedCount}} 次</span>
-        </small>
-      </div>
+        <div class="index-desc">
+          <small>
+            <span>{{author}} 发表于 {{fromNow}}</span>
+            <span>浏览 {{visitedCount}} 次</span>
+            <span>评论 {{commentedCount}} 次</span>
+          </small>
+        </div>
       </div>
       {{/each}}
       {{#if haveMore}}

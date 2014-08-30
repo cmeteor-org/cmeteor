@@ -1,4 +1,4 @@
-moment.lang('en', {
+moment.locale('en', {
     relativeTime : {
         future: "在%s",
         past:   "%s之前",

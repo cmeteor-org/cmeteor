@@ -1,83 +1,24 @@
+.desc {
+  color: #999;
+  white-space: nowrap;
+}
 .post-header {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
-  font-size: 20px;
-  line-height: 26px;
-  margin-bottom: 20px;
-  padding: 5px;
-  border-bottom: 2px LightGrey dotted;
   color: #333;
 }
+.post-title {
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
 .post-body {
-  padding: 10px 10px 20px 10px;
-  margin-bottom: 20px;
-  border-bottom: 4px LightGrey double;
-}
+  margin: 2em 0;
+  /*font-family: 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', STFangSong, STKaiti, SimSun, serif;*/
+  font-family: '宋体';
 
+}
 .comment-body {
-  padding: 10px 20px;
-  border-bottom: 2px LightGrey dashed;
+  padding: 1em 2em;
+  border-top: 2px LightGrey dashed;
 }
-
-.comment-body:last-child {
-  border-bottom: 0px;
-}
-
 #ta-post-comment {
   margin-bottom: 10px;
-}
-.mk {
-  word-wrap: break-word;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
-/*  font-size: 16px;
-  line-height: 26px;*/
-}
-.mk h1, h2, h3, h4 {
-  font-family:"Helvetica Neue","Microsoft YaHei","SimHei";
-}
-.mk li {
-  margin-left: 10px;
-}
-.mk blockquote {
-  border-left: 4px lightgrey solid;
-  padding-left: 5px;
-  margin-left: 20px;
-}
-.mk pre {
-  font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
-  font-size: 75%;
-  border: solid 1px lightgrey;
-  background-color: Ivory;
-  padding: 5px;
-  line-height: 130%;
-  margin-left: 10px;
-  width: 95%;
-}
-.mk code {
-  font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
-  /*font-size: 90%;*/
-}
-.mk a {
-  text-decoration: none;
-  cursor: crosshair;
-  border-bottom: 1px dashed #333;
-  padding: 1px;
-  color: black;
-}
-.mk a:hover {
-  background-color: #999;
-}
-.mk img {
-  display: block;
-  border-radius: 6px;
-  /*margin-left: auto;*/
-  /*margin-right: auto;*/
-  margin-top: 10px;
-  margin-bottom: 10px;
-  /*box-shadow: 0 0 10px #555;*/
-  /*-webkit-box-shadow: 0 0 10px #555;*/
-}
-.mk hr {
-  color: LightGrey;
-/*  width: 80%;
-  align: left;*/
 }

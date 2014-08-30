@@ -1,48 +1,28 @@
-body {
-  /*font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;*/
-  font-family: 'Helvetica Neue',Helvetica,Verdana,Arial,Sans-serif;
-  font-size: 18px;
-}
-a {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
-  /*font-family: 'Helvetica Neue',Helvetica,Arial,Sans-serif;*/
-  color: #333;
-}
-a:visited {
-  color: #888;
-}
-.post-row {
+.index-row {
   height: 50px;
   margin-top: 15px;
 }
-a[class="post-title"] {
-  font-size: 20px;
-  line-height: 26px;
+.index-title {
+  font-family: 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', STFangSong, STKaiti, SimSun, serif;
+  font-size: 1.2em;
+  line-height: 1em;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   white-space: nowrap;
   display: inline-block;
   vertical-align: bottom;
 }
-small {
-  /*font-family: 'Helvetica Neue',Helvetica,Arial,Sans-serif;*/
-  /*font-style: italic;*/
+.index-desc {
+  font-size: 0.8em;
   color: #999;
-  font-size: 12px;
   white-space: nowrap;
-}
-span:before {
-  content: "• "
-}
-textarea {
-  resize: vertical;
 }
 #div-have-more {
   display: block;
   background: rgba(0, 0, 0, 0);
   text-align: center;
-  height: 60px;
-  line-height: 60px;
+  height: 50px;
+  line-height: 50px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
