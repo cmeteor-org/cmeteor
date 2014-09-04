@@ -12,12 +12,15 @@
 .post-body {
   margin: 2em 0;
   /*font-family: 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', STFangSong, STKaiti, SimSun, serif;*/
-  font-family: '宋体';
+  /*font-family: '宋体';*/
 
 }
 .comment-body {
   padding: 1em 2em;
   border-top: 2px LightGrey dashed;
+}
+.float-right {
+  float: right;
 }
 #ta-post-comment {
   margin-bottom: 10px;

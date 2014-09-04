@@ -7,8 +7,12 @@
         <textarea id="ta-post-title" class="form-control" rows="1">{{title}}</textarea>
         <textarea id="ta-post-content" class="form-control" rows="20">{{content}}</textarea> 
         {{/with}}
+        <p id="p-post-preview" style="display:none;" class="mk">
+          {{#markdown}}{{{markdown_data}}}{{/markdown}}
+        </p>
       </fieldset>
       <button id="btn-post-edit" type="button" class="btn btn-default">修改</button>
+      <button id="btn-post-preview" type="button" class="btn btn-default" value="preview">预览</button>
     </div>
   </div>
 </template>

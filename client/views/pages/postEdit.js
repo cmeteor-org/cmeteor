@@ -21,5 +21,30 @@ Template.postEdit.events({
                 return throwError(err.reason);
             Router.go('post', {id: postId});
         });
+    },
+    'click #btn-post-preview': function(e){
+        e.preventDefault()
+        clearErrors();
+
+        var btn = $(e.target);
+        var preview = $('#p-post-preview');
+        var content = $('#ta-post-content');
+
+        if(btn.attr('value') === 'preview'){
+            Session.set('markdown_data', content.val());
+            preview.show();
+            content.hide();
+            btn.attr('value', 'modify');
+            btn.text('修改');
+        }else if(btn.attr('value') === 'modify'){
+            preview.hide();
+            content.show();
+            btn.attr('value', 'preview');
+            btn.text('预览');
+        }
     }
-})
+});
+
+Template.postEdit.markdown_data = function(){
+    return Session.get('markdown_data');
+}
