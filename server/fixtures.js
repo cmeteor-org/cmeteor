@@ -15,7 +15,7 @@ var initData = function(){
     var demo = Meteor.users.findOne({'username': 'demo'});
     var hello = Meteor.users.findOne({'username': 'hello'});
 
-    var postId = Posts.insert({
+    Posts.insert({
         title: 'What is Meteor?',
         content: '<p>A library of packages: pre-written, self-contained modules that you might need in your app.\
                     There are about a dozen core Meteor packages that most any app will use (for example webapp, \
@@ -51,14 +51,24 @@ var initData = function(){
         commentedCount: 0
     });
 
+    var post = Posts.findOne();
+
     Comments.insert({
-        postId: postId,
+        postId: post._id,
         content: 'It\'s good.',
         userId: hello._id,
         author: hello.username,
         submited: new Date().getTime()
     });
-    Posts.update(postId, {$inc: {commentedCount: 1}});
+    Posts.update(post._id, {$inc: {commentedCount: 1}});
+
+    Notifies.insert({
+        userId: hello._id,
+        postId: post._id,
+        postTitle: post.title,
+        msgNum: 0, // root.NOTIFIES
+        read: false
+    });
 
     for(var i=0; i<20; i++){
         Posts.insert({

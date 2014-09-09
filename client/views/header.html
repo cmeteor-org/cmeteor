@@ -13,10 +13,10 @@
       {{#if currentUser}}
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a id="a-submit" href="#">发布</a>
+          <a href="{{pathFor 'postSubmit'}}">发布</a>
         </li>
         <li>
-          <a id="a-submit" href="#">通知 &nbsp; <i>10</i></a>
+          <a href="{{pathFor 'notify'}}">通知 &nbsp; <i class="badge">{{notifyCount}}</i></a>
         </li>
         <li id="li-username">
           <a href="{{pathFor 'index'}}">{{currentUser.username}}</a>

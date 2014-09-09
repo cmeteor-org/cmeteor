@@ -3,14 +3,16 @@ Template.header.events({
         e.preventDefault();
         Meteor.logout();
     },
-    'click #a-submit': function(e){
-        e.preventDefault();
-        Router.go('postSubmit');
-    },
     'mouseenter li': function(e){
         $(e.target).addClass('active');
     },
     'mouseleave li': function(e){
         $(e.target).removeClass('active');
     }
-})
+});
+
+Template.header.helpers({
+    notifyCount: function(){
+        return Notifies.find({read: false}).count();
+    }
+});

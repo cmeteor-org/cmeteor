@@ -21,8 +21,10 @@ Meteor.publish('comments', function(postId){
 });
 
 Meteor.publish('notifies', function(){
-    var user = Meteor.user();
+    var user = Meteor.users.findOne(this.userId);
     if(user){
-        return Notifies.find({userId: user._id, read: false});
+        return Notifies.find({userId: user._id});
+    }else{
+        return [];
     }
 });
