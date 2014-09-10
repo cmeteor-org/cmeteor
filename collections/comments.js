@@ -30,6 +30,14 @@ Meteor.methods({
                 return false;
             }
             Posts.update(postId, {$inc: {commentedCount: 1}});
+            Notifies.insert({
+                userId: post.userId,
+                postId: post._id,
+                postTitle: post.title,
+                msgNum: 0,
+                read: false,
+                submited: new Date().getTime()
+            });
         });
 
     }

@@ -23,7 +23,10 @@ Meteor.publish('comments', function(postId){
 Meteor.publish('notifies', function(){
     var user = Meteor.users.findOne(this.userId);
     if(user){
-        return Notifies.find({userId: user._id});
+        return Notifies.find({userId: user._id}, {
+            limit: root.NOTIFIES_LIMIT,
+            sort: {submited: -1}
+        });
     }else{
         return [];
     }

@@ -45,6 +45,17 @@ Meteor.methods({
                 content: content,
                 lastModified: new Date().getTime()
             }
-        });       
+        });
+
+        Comments.find({postId: post._id}).forEach(function(comment){
+            Notifies.insert({
+                userId: comment.userId,
+                postId: post._id,
+                postTitle: post.title,
+                msgNum: 1,
+                read: false,
+                submited: new Date().getTime()
+            });
+        });
     }
 });

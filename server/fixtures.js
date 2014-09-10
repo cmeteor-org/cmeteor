@@ -63,11 +63,12 @@ var initData = function(){
     Posts.update(post._id, {$inc: {commentedCount: 1}});
 
     Notifies.insert({
-        userId: hello._id,
+        userId: post.userId,
         postId: post._id,
         postTitle: post.title,
         msgNum: 0, // root.NOTIFIES
-        read: false
+        read: false,
+        submited: new Date().getTime()
     });
 
     for(var i=0; i<20; i++){
