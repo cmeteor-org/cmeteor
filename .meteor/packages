@@ -8,8 +8,9 @@ mrt:moment@2.6.0
 accounts-base
 accounts-password
 mrt:iron-router-progress@0.4.1
-arunoda:kadira@2.4.10
 showdown
 iron:router
 mizzao:bootstrap-3
+meteorhacks:kadira
+meteorhacks:zones
 

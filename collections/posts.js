@@ -4,7 +4,7 @@ Meteor.methods({
     postSubmit: function(title, content){
         var user = Meteor.user();
 
-        if(!validStringLength(title, 2, 28, throwError.bind(null, 403, '标题的长度应该在2-28之间！')))
+        if(!validStringLength(title, 2, 50, throwError.bind(null, 403, '标题的长度应该在2-50之间！')))
             return false;
         if(!validStringLength(content, 10, 10000, throwError.bind(null, 403, '正文的长度应该在10-10000之间！')))
             return false;
@@ -29,7 +29,7 @@ Meteor.methods({
         var user = Meteor.user();
         var post = Posts.findOne(id);
 
-        if(!validStringLength(title, 2, 28, throwError.bind(null, 403, '标题的长度应该在2-28之间！')))
+        if(!validStringLength(title, 2, 50, throwError.bind(null, 403, '标题的长度应该在2-50之间！')))
             return false;
         if(!validStringLength(content, 10, 10000, throwError.bind(null, 403, '正文的长度应该在10-10000之间！')))
             return false;

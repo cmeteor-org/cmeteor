@@ -17,14 +17,14 @@ var initData = function(){
 
     Posts.insert({
         title: 'What is Meteor?',
-        content: '<p>A library of packages: pre-written, self-contained modules that you might need in your app.\
-                    There are about a dozen core Meteor packages that most any app will use (for example webapp, \
+        content: 'A library of packages: pre-written, self-contained modules that you might need in your app.\
+                      There are about a dozen core Meteor packages that most any app will use (for example webapp, \
                     which handles incoming HTTP connections, and templating, which lets you make HTML templates \
                     that automatically update live as data changes). Then there are optional packages like email, \
                     which lets your app send emails, or the Meteor Accounts series (account-password, \
                     accounts-facebook, accounts-ui, and others) which provide a full-featured user account system \
                     that you can drop right into your app. And beyond these "official" packages, there are hundreds\
-                     of community-written packages in Atmosphere, one of which might do just what you need.</p>',
+                     of community-written packages in Atmosphere, one of which might do just what you need.',
         userId: demo._id,
         author: demo.username,
         visitedCount: 0,
@@ -71,18 +71,18 @@ var initData = function(){
         submited: new Date().getTime()
     });
 
-    for(var i=0; i<20; i++){
-        Posts.insert({
-            title: 'Test ' + i,
-            content: 'Test content ' + i,
-            userId: hello._id,
-            author: hello.username,
-            visitedCount: i,
-            submited: new Date().getTime(),
-            lastModified: new Date().getTime(),
-            commentedCount: 0
-        });
-    }
+    // for(var i=0; i<20; i++){
+    //     Posts.insert({
+    //         title: 'Test ' + i,
+    //         content: 'Test content ' + i,
+    //         userId: hello._id,
+    //         author: hello.username,
+    //         visitedCount: i,
+    //         submited: new Date().getTime(),
+    //         lastModified: new Date().getTime(),
+    //         commentedCount: 0
+    //     });
+    // }
 }
 
 if(process.env.NODE_ENV == 'development'){
