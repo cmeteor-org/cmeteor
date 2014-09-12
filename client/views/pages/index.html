@@ -1,11 +1,11 @@
 <template name="index">
-    <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+    <div class="col-md-8 col-md-offset-2 col-xs-10">
       {{#each posts}}
       <div class="index-row">
         <a class="index-title" href="/post/{{_id}}">
           <strong>{{title}}</strong>
         </a>
-        <div class="index-desc">
+        <div class="index-desc desc">
           <small>
             <span>{{author}} 发表于 {{fromNow}}</span>
             <span>浏览 {{visitedCount}} 次</span>

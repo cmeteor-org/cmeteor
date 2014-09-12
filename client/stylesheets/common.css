@@ -125,6 +125,3 @@ td {
 textarea {
   resize: vertical;
 }
-span:before {
-  content: "• "
-}

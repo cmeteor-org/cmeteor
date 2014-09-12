@@ -1,6 +1,5 @@
 .index-row {
-  height: 50px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .index-title {
   font-family: 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', STFangSong, STKaiti, SimSun, serif;
@@ -8,14 +7,17 @@
   line-height: 1em;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
-  white-space: nowrap;
   display: inline-block;
   vertical-align: bottom;
 }
+.desc {
+  color: #999;
+}
+.desc span:before {
+  content: "• "
+}
 .index-desc {
   font-size: 0.8em;
-  color: #999;
-  white-space: nowrap;
 }
 #div-have-more {
   display: block;
