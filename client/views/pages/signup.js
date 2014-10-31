@@ -1,13 +1,12 @@
 Template.signup.events({
     'focusout #password1':function(e){
-	e.preventDefault();
-	var password=$('#password').val();
-	var password1=$('#password1').val();
-	if(password!=password1){
-	  return throwError('两次密码不一致');
-	}
+        e.preventDefault();
+        var password=$('#password').val();
+        var password1=$('#password1').val();
+        if(password!=password1){
+            return throwError('两次密码不一致');
+        }
     },
-
     'click #btn-signup-reset': function(e){
         e.preventDefault();
         $('#username').val('');
