@@ -1,6 +1,9 @@
 Template.postEdit.helpers({
     post: function(){
         return Posts.findOne(location.pathname.replace(/\/post\/edit\//g, ''));
+    },
+    markdown_data: function(){
+        return Session.get('markdown_data');
     }
 });
 
@@ -44,7 +47,3 @@ Template.postEdit.events({
         }
     }
 });
-
-Template.postEdit.markdown_data = function(){
-    return Session.get('markdown_data');
-}
