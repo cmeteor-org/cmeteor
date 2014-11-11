@@ -1,9 +1,9 @@
 Meteor.methods({
-  setPassword:function(password){
+  setPassword:function(password) {
         check(password,String);
-        if (this.userId){
+        if (this.userId) {
           Accounts.setPassword(this.userId,password);
-        }else{
+        } else {
           return false;
         }
   },

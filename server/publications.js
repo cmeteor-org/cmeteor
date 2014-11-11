@@ -1,5 +1,5 @@
 Meteor.publish('posts', function(limit){
-    if(!parseInt(limit) || limit < 0)
+    if(!parseInt(limit, 10) || limit < 0)
         limit = 0;
     return Posts.find({},{
         limit: limit,
@@ -7,7 +7,7 @@ Meteor.publish('posts', function(limit){
     });
 });
 
-Meteor.publish('post', function(id){
+Meteor.publish('post', function(id) {
     // return Posts.find(id);
     Posts.update(
         {_id: id},
@@ -22,12 +22,12 @@ Meteor.publish('comments', function(postId){
 
 Meteor.publish('notifies', function(){
     var user = Meteor.users.findOne(this.userId);
-    if(user){
+    if(user) {
         return Notifies.find({userId: user._id}, {
             limit: root.NOTIFIES_LIMIT,
             sort: {submited: -1}
         });
-    }else{
+    } else {
         return [];
     }
 });

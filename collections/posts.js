@@ -34,7 +34,7 @@ Meteor.methods({
         if(!validStringLength(content, 10, 10000, throwError.bind(null, 403, '正文的长度应该在10-10000之间！')))
             return false;
 
-        if(!user || post.userId != user._id){
+        if(!user || post.userId !== user._id){
             throwError(403, '没有权限修改！');
             return false;
         }
