@@ -1,18 +1,21 @@
 Template.header.events({
-    'click #a-logout': function(e){
+    'click #a-logout': function(e) {
         e.preventDefault();
         Meteor.logout();
+        Router.go('index');
     },
-    'mouseenter li': function(e){
+    'mouseenter li': function(e) {
         $(e.target).addClass('active');
     },
-    'mouseleave li': function(e){
+    'mouseleave li': function(e) {
         $(e.target).removeClass('active');
     }
 });
 
 Template.header.helpers({
-    notifyCount: function(){
-        return Notifies.find({read: false}).count();
+    notifyCount: function() {
+        return Notifies.find({
+            read: false
+        }).count();
     }
 });
