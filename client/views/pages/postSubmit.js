@@ -38,6 +38,8 @@ Template.postSubmit.events({
     }
 })
 
-Template.postSubmit.markdown_data = function(){
-    return Session.get('markdown_data');
-}
+Template.postSubmit.helpers({
+    markdown_data: function(){
+        return Session.get('markdown_data');
+    }
+})

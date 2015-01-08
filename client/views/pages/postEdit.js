@@ -1,6 +1,8 @@
 Template.postEdit.helpers({
     post: function(){
-        return Posts.findOne(location.pathname.replace(/\/post\/edit\//g, ''));
+        // var post =  Posts.findOne(location.pathname.replace(/\/post\/edit\//g, ''));
+        var post =  Posts.findOne(Router.current().params['id']);
+        return post;
     },
     markdown_data: function(){
         return Session.get('markdown_data');
@@ -18,7 +20,8 @@ Template.postEdit.events({
         if(!validStringLength(content, 10, 10000, throwError.bind(null, '正文的长度应该在10-10000之间！')))
             return false;
 
-        var postId = Posts.findOne(location.pathname.replace(/\/post\/edit\//g, ''))._id;
+        // var postId = Posts.findOne(location.pathname.replace(/\/post\/edit\//g, ''))._id;
+        var postId = Posts.findOne(Router.current().params['id'])._id;
         Meteor.call('postEdit', title, content, postId, function(err){
             if(err)
                 return throwError(err.reason);
