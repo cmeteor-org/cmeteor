@@ -1,0 +1,116 @@
+/*header*/
+.header {
+  background-color: @color-header-bg;
+  #bs-navbar-collapse {
+    padding-left: 2.8125em;
+    padding-right: 2.8125em;
+    #i-notify-count {
+      vertical-align: bottom;
+    }
+  }
+  .navbar-header {
+    #a-title {
+      font-size: 2.1875em;
+      color: black;
+    }
+  }
+  .read {
+    color: #888;
+  }
+  .notify-row {
+    height: 2.5em;
+  }
+}
+
+/*main content*/
+.content {
+  margin-top: 0.625em;
+  &>div {
+    float: none;
+  }
+  padding-top: 50px;
+  .index-row {
+    margin-top: 0.625em;
+    .index-title {
+      font-family: 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', STFangSong, STKaiti, SimSun, serif;
+      font-size: 1.2em;
+      line-height: 1em;
+      text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      display: inline-block;
+      vertical-align: bottom;
+    }
+    &.desc {
+      color: #999;
+      span:before {
+        content: "• "
+      };
+    }
+    .index-desc {
+      font-size: 0.8em;
+    }
+  }
+  #div-have-more {
+    display: block;
+    background: rgba(0, 0, 0, 0);
+    text-align: center;
+    height: 3.125em;
+    line-height: 3.125em;
+    margin-top: 0.625em;
+    margin-bottom: 0.625em;
+    &:hover {
+      text-decoration: none;
+      background: rgba(0, 0, 0, 0.1);
+    };
+  }
+  /*post comments start */
+  .post-header {
+    color: @color-post-div;
+    .post-title {
+      font-size: 1.5em;
+      line-height: 1.5em;
+    }
+  }
+
+  .post-body {
+    margin: 2em 0;
+  }
+  .comment-body {
+    padding: 1em 2em;
+    border-top: 2px LightGrey dashed;
+    .mk {
+      margin: 0.3125em;
+    }
+    .float-right {
+      float: right;
+    }
+    #ta-post-comment {
+      margin-bottom: 0.625em;
+    }
+  }
+  /*post comments end */
+
+  /*for 404*/
+  .div-full-center {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    .span-1 {
+      height: 100%;
+      width: 0.0625em;
+      margin-left: -0.0625em;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .a-middle{
+      vertical-align: middle;
+      font-size: 12em;
+      color: black;
+    }
+  }
+}
