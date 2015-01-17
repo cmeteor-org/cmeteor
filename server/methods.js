@@ -15,7 +15,6 @@ Meteor.methods({
 Meteor.methods({
     postSubmit: function(title, content) {
         var user = Meteor.user();
-
         if (!validStringLength(title, 2, 50, throwError.bind(null, 403, '标题的长度应该在2-50之间！')))
             return false;
         if (!validStringLength(content, 10, 10000, throwError.bind(null, 403, '正文的长度应该在10-10000之间！')))
@@ -31,22 +30,22 @@ Meteor.methods({
             userId: user._id,
             author: user.username,
             visitedCount: 0,
-            submited: new Date().getTime(),
-            lastModified: new Date().getTime(),
+            submited: getTime(),
+            lastModified: getTime(),
             commentedCount: 0
         };
         return Posts.insert(newPost);
     },
     postEdit: function(title, content, id) {
-        var user = Meteor.user();
+        //var user = Meteor.user();
         var post = Posts.findOne(id);
-
+        var currentUserId = this.userId;
         if (!validStringLength(title, 2, 50, throwError.bind(null, 403, '标题的长度应该在2-50之间！')))
             return false;
         if (!validStringLength(content, 10, 10000, throwError.bind(null, 403, '正文的长度应该在10-10000之间！')))
             return false;
 
-        if (!user || post.userId !== user._id) {
+        if (!currentUserId || post.userId !== currentUserId) {
             throwError(403, '没有权限修改！');
             return false;
         }
@@ -55,7 +54,7 @@ Meteor.methods({
             $set: {
                 title: title,
                 content: content,
-                lastModified: new Date().getTime()
+                lastModified: getTime()
             }
         });
 
@@ -68,7 +67,7 @@ Meteor.methods({
                 postTitle: post.title,
                 msgNum: 1,
                 read: false,
-                submited: new Date().getTime()
+                submited: getTime()
             });
         });
     }
@@ -97,10 +96,9 @@ Meteor.methods({
             content: content,
             userId: user._id,
             author: user.username,
-            submited: new Date().getTime()
+            submited: getTime()
         };
-
-        return Comments.insert(newComment, function(err, result) {
+        return Comments.insert(newComment, function(err) {
             if (err) {
                 throwError(500, '保存评论时出错！');
                 return false;
@@ -113,12 +111,14 @@ Meteor.methods({
 
             if (newComment.userId !== post.userId) {
                 Notifies.insert({
+                    commentUserName: user.username,
+                    commenetUserId: user._id,
                     userId: post.userId,
                     postId: post._id,
                     postTitle: post.title,
                     msgNum: 0,
                     read: false,
-                    submited: new Date().getTime()
+                    submited: getTime()
                 });
             }
         });

@@ -20,12 +20,12 @@ Template.post.helpers({
 
 Template.post.events({
     'click #btn-comment-submit': function(e){
+        console.log(this)
         e.preventDefault();
         clearErrors();
         var el = $('#ta-post-comment');
         // var post = Posts.findOne(location.pathname.replace(/\/post\//g, ''));
         var post = Posts.findOne(Router.current().params['id']);
-
         Meteor.call('commentSubmit', el.val(), post._id, function(err){
             if(err){
                 return throwError(err.reason);
