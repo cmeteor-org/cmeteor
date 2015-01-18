@@ -4,8 +4,8 @@
       {{> errors}}
       <fieldset>
         {{#with post}}
-        <textarea id="ta-post-title" class="form-control" rows="1">{{title}}</textarea>
-        <textarea id="ta-post-content" class="form-control" rows="20">{{content}}</textarea> 
+        <textarea id="ta-post-title" class="form-control" rows="1" value="{{title}}"></textarea>
+        <textarea id="ta-post-content" class="form-control" rows="20" value="{{content}}"></textarea>
         {{/with}}
         <p id="p-post-preview" style="display:none;" class="mk">
           {{#markdown}}{{{markdown_data}}}{{/markdown}}

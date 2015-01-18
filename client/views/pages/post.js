@@ -20,7 +20,6 @@ Template.post.helpers({
 
 Template.post.events({
     'click #btn-comment-submit': function(e){
-        console.log(this)
         e.preventDefault();
         clearErrors();
         var el = $('#ta-post-comment');

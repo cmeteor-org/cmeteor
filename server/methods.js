@@ -37,7 +37,7 @@ Meteor.methods({
         return Posts.insert(newPost);
     },
     postEdit: function(title, content, id) {
-        //var user = Meteor.user();
+        var user = Meteor.user();
         var post = Posts.findOne(id);
         var currentUserId = this.userId;
         if (!validStringLength(title, 2, 50, throwError.bind(null, 403, '标题的长度应该在2-50之间！')))
@@ -58,18 +58,19 @@ Meteor.methods({
             }
         });
 
-        Comments.find({
-            postId: post._id
-        }).forEach(function(comment) {
+        var comemntsArr = Comments.find({postId: post._id}, {fields: {userId: 1}}).fetch();
+        if (comemntsArr.length !== 0) {
             Notifies.insert({
-                userId: comment.userId,
+                commentUserName: user.username,
+                commenetUserId: user.userId,
+                userId: comemntsArr[0].userId,
                 postId: post._id,
                 postTitle: post.title,
                 msgNum: 1,
                 read: false,
                 submited: getTime()
             });
-        });
+        }
     }
 });
 
@@ -124,4 +125,4 @@ Meteor.methods({
         });
 
     }
-})
+});

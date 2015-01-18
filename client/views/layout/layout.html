@@ -1,7 +1,9 @@
 <template name="layout">
   {{> yield region="header"}}
-  <div class="content">
-      {{> yield}}
-  </div>
+    <div class="main-layout">
+        <div class="content">
+            {{> yield}}
+        </div>
+    </div>
   {{> yield region="footer"}}
 </template>

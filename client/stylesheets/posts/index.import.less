@@ -1,5 +1,6 @@
 /*header*/
 .header {
+  .self-box-shadow();
   background-color: @color-header-bg;
   #bs-navbar-collapse {
     padding-left: 2.8125em;
@@ -16,105 +17,133 @@
   }
 }
 
-/*main content*/
-.content {
-  margin-top: 0.625em;
-  &>div {
-    float: none;
-  }
-  //notify start
-  .row {
-    .read {
-      color: #888;
+.main-layout {
+  background-color: @color-content-div;
+  margin: 0 auto;
+  min-height: 31.25em;
+  /*main content*/
+  .content {
+    padding-top: 3.5em;
+    & > div {
+      float: none;
     }
-    .notify-row {
-      height: 2.5em;
+    //notify start
+    .self-row {
+      margin: 0 auto;
+      width: 55%;
+      .read {
+        color: #888;
+      }
+      .notify-row {
+        .self-box-shadow();
+        background-color: @color-header-bg;
+        margin-bottom: 1em;
+        height: 2.5em;
+        padding: .5em;
+      }
     }
-  }
-  // notify end
-  padding-top: 50px;
-  .index-row {
-    margin-top: 0.625em;
-    .index-title {
-      font-family: 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', STFangSong, STKaiti, SimSun, serif;
-      font-size: 1.2em;
-      line-height: 1em;
-      text-overflow: ellipsis;
-      -o-text-overflow: ellipsis;
-      display: inline-block;
-      vertical-align: bottom;
+    // notify end
+    .index-row {
+      .self-box-shadow();
+      & > div {
+        margin-left: 1.2em;
+        margin-top: 1.2em;
+      }
+      width: 100%;
+      height: 4.5em;
+      background-color: @color-header-bg;
+      .title-div {
+        .index-title {
+          .type-regular();
+          text-overflow: ellipsis;
+          -o-text-overflow: ellipsis;
+          display: inline-block;
+          vertical-align: bottom;
+        }
+      }
+      .index-desc {
+        font-size: 0.8em;
+        &.desc {
+          color: #999;
+          span:before {
+            content: "• "
+          }
+        ;
+        }
+      }
     }
-    &.desc {
-      color: #999;
-      span:before {
-        content: "• "
-      };
-    }
-    .index-desc {
-      font-size: 0.8em;
-    }
-  }
-  #div-have-more {
-    display: block;
-    background: rgba(0, 0, 0, 0);
-    text-align: center;
-    height: 3.125em;
-    line-height: 3.125em;
-    margin-top: 0.625em;
-    margin-bottom: 0.625em;
-    &:hover {
-      text-decoration: none;
-      background: rgba(0, 0, 0, 0.1);
-    };
-  }
-  /*post comments start */
-  .post-header {
-    color: @color-post-div;
-    .post-title {
-      font-size: 1.5em;
-      line-height: 1.5em;
-    }
-  }
-
-  .post-body {
-    margin: 2em 0;
-  }
-  .comment-body {
-    padding: 1em 2em;
-    border-top: 2px LightGrey dashed;
-    .mk {
-      margin: 0.3125em;
-    }
-    .float-right {
-      float: right;
-    }
-    #ta-post-comment {
+    #div-have-more {
+      display: block;
+      background: rgba(0, 0, 0, 0);
+      text-align: center;
+      height: 3.125em;
+      line-height: 3.125em;
+      margin-top: 0.625em;
       margin-bottom: 0.625em;
+      &:hover {
+        text-decoration: none;
+        background: rgba(0, 0, 0, 0.1);
+      }
+    ;
     }
-  }
-  /*post comments end */
+    .post-main {
+      background-color: @color-header-bg;
+      &>div{
+        margin: 1em;
+      }
+      .self-box-shadow();
+      .post-header {
+        color: @color-post-div;
+        .post-title {
+          font-size: 1.5em;
+          line-height: 1.5em;
+        }
+      }
+    }
+    /*post comments start */
+    .comment-div {
+      &>div {
+        margin-bottom: 1em;
+      }
+      .comment-body {
+        background-color: @color-header-bg;
+        .self-box-shadow();
+        padding: 1em 2em;
+        .mk {
+          margin: 0.3125em;
+        }
+        .float-right {
+          float: right;
+        }
+        #ta-post-comment {
+//          margin-bottom: 0.625em;
+        }
+      }
+    }
+    /*post comments end */
 
-  /*for 404*/
-  .div-full-center {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    text-align: center;
-    .span-1 {
+    /*for 404*/
+    .div-full-center {
+      width: 100%;
       height: 100%;
-      width: 0.0625em;
-      margin-left: -0.0625em;
-      vertical-align: middle;
-      display: inline-block;
-    }
+      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      .span-1 {
+        height: 100%;
+        width: 0.0625em;
+        margin-left: -0.0625em;
+        vertical-align: middle;
+        display: inline-block;
+      }
 
-    .a-middle{
-      vertical-align: middle;
-      font-size: 12em;
-      color: black;
+      .a-middle {
+        vertical-align: middle;
+        font-size: 12em;
+        color: black;
+      }
     }
   }
 }
