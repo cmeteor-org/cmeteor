@@ -1,5 +1,5 @@
 <template name="post">
-    <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+    <div class="post-detail">
         {{#with post}}
             <div class="post-main">
                 <div class="post-header">
@@ -41,12 +41,11 @@
             </div>
         {{/if}}
         {{#if currentUser}}
-            <div class="">
+            <div class="replay-main">
                 {{> errors}}
-                <fieldset>
-                    <textarea id="ta-post-comment" class="form-control" rows="8"></textarea>
-                </fieldset>
-
+                <div class="user-edit">
+                    <div id="ta-post-comment" class="edit-div" contenteditable="true"></div>
+                </div>
                 <button id="btn-comment-submit" type="button" class="btn btn-default">回复</button>
             </div>
         {{/if}}

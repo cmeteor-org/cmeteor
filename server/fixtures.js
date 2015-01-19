@@ -34,7 +34,7 @@ var initData = function(){
     });
 
     var msg2_id = Posts.insert({
-        title: 'A command-line tool called meteor.',
+        title: 'A command-line: meteor.',
         content: '<p>meteor is a build tool analogous to make, rake, or the non-visual parts of Visual Studio. It \
                     gathers up all of the source files and assets in your application, carries out any necessary \
                     build steps (such as compiling CoffeeScript, minifying CSS, building npm modules, or generating \
