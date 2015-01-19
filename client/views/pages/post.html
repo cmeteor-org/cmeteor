@@ -1,51 +1,53 @@
 <template name="post">
-  <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
-    {{#with post}}
-    <div class="post-header">
-      <div class="post-title">
-        <strong>{{title}}</strong>
-      </div>
-      <div class="desc">
-        <small>
-            <span>{{author}} 发表于 {{fromNow}}</span>
-            <span>浏览 {{visitedCount}} 次</span>
-            <span>评论 {{commentedCount}} 次</span>
-        </small>
-        {{#if equal currentUser._id userId}}
-          <a class="float-right" href="/post/edit/{{_id}}">编辑</a>
+    <div class="post-detail">
+        {{#with post}}
+            <div class="post-main">
+                <div class="post-header">
+                    <div class="post-title">
+                        <strong>{{title}}</strong>
+                    </div>
+                    <div class="desc">
+                        <small>
+                            <span>{{author}} 发表于 {{fromNow}}</span>
+                            <span>浏览 {{visitedCount}} 次</span>
+                            <span>评论 {{commentedCount}} 次</span>
+                        </small>
+                        {{#if equal currentUser._id userId}}
+                            <a class="float-right" href="/post/edit/{{_id}}">编辑</a>
+                        {{/if}}
+                    </div>
+
+                </div>
+                <div class="post-body">
+                    <p class="mk">
+                        {{#markdown}}{{content}}{{/markdown}}
+                    </p>
+                </div>
+            </div>
+        {{/with}}
+        {{#if comments}}
+            <div class="comment-div">
+                {{#each comments}}
+                    <div class="comment-body">
+                        <p class="mk">{{#markdown}}{{content}}{{/markdown}}</p>
+
+                        <div class="desc">
+                            <small>
+                                <span class="">{{author}} 回复于 {{fromNow}}</span>
+                            </small>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
         {{/if}}
-      </div>
-
+        {{#if currentUser}}
+            <div class="replay-main">
+                {{> errors}}
+                <div class="user-edit">
+                    <div id="ta-post-comment" class="edit-div" contenteditable="true"></div>
+                </div>
+                <button id="btn-comment-submit" type="button" class="btn btn-default">回复</button>
+            </div>
+        {{/if}}
     </div>
-    <div class="post-body">
-      <p class="mk">
-        {{#markdown}}{{content}}{{/markdown}}
-      </p>
-    </div>
-    {{/with}} 
-    {{#if comments}}
-    <div class="">
-      {{#each comments}}
-      <div class="comment-body">
-        <p class="mk">{{#markdown}}{{content}}{{/markdown}}</p>
-        <div class="desc">
-          <small>
-            <span class="">{{author}} 回复于 {{fromNow}}</span>
-          </small>
-        </div>
-      </div>
-      {{/each}}
-    </div>
-    {{/if}} 
-    {{#if currentUser}}
-    <div class="">
-        {{> errors}}
-        <fieldset>
-          <textarea id="ta-post-comment" class="form-control" rows="8"></textarea>
-        </fieldset>
-
-        <button id="btn-comment-submit" type="button" class="btn btn-default">回复</button>
-    </div>
-    {{/if}}
-  </div>
 </template>

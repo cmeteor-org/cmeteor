@@ -1,7 +1,21 @@
 .footer {
   text-align: center;
-  margin-top: 3.125em;
-  a:visited {
-    color: @color-post-div;
+  clear: both;
+  & > div {
+    height: 100%;
+    margin-top: .2em;
+    margin-bottom: .2em;
+//    display: inline-block;
+  }
+  .footer-meteor {
+    a {
+      text-indent: -9999px;
+      &:before {
+        content: url("/meteor-logo.png");
+      }
+    }
+  }
+  .footer-cmeteor {
+    background-color: @color-header-bg;
   }
 }

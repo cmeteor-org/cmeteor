@@ -17,7 +17,7 @@ Meteor.publish('post', function(id) {
 });
 
 Meteor.publish('comments', function(postId){
-    return Comments.find({postId:postId});
+    return Comments.find({postId: postId});
 });
 
 Meteor.publish('notifies', function(){

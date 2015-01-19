@@ -14,8 +14,6 @@ Template.header.events({
 
 Template.header.helpers({
     notifyCount: function() {
-        return Notifies.find({
-            read: false
-        }).count();
+        return Notifies.find({read: false}, {fields:{read: 1}}).count();
     }
 });

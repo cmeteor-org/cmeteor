@@ -15,7 +15,7 @@ var initData = function(){
     var demo = Meteor.users.findOne({'username': 'demo'});
     var hello = Meteor.users.findOne({'username': 'hello'});
 
-    Posts.insert({
+    var msg1_id = Posts.insert({
         title: 'What is Meteor?',
         content: 'A library of packages: pre-written, self-contained modules that you might need in your app.\
                       There are about a dozen core Meteor packages that most any app will use (for example webapp, \
@@ -28,13 +28,13 @@ var initData = function(){
         userId: demo._id,
         author: demo.username,
         visitedCount: 0,
-        submited: new Date().getTime(),
-        lastModified: new Date().getTime(),
+        submited: getTime(),
+        lastModified: getTime(),
         commentedCount: 0
     });
 
-    Posts.insert({
-        title: 'A command-line tool called meteor.',
+    var msg2_id = Posts.insert({
+        title: 'A command-line: meteor.',
         content: '<p>meteor is a build tool analogous to make, rake, or the non-visual parts of Visual Studio. It \
                     gathers up all of the source files and assets in your application, carries out any necessary \
                     build steps (such as compiling CoffeeScript, minifying CSS, building npm modules, or generating \
@@ -46,46 +46,36 @@ var initData = function(){
         userId: hello._id,
         author: hello.username,
         visitedCount: 0,
-        submited: new Date().getTime(),
-        lastModified: new Date().getTime(),
+        submited: getTime(),
+        lastModified: getTime(),
         commentedCount: 0
     });
 
-    var post = Posts.findOne();
+    var post = Posts.findOne({"_id": msg1_id});
 
     Comments.insert({
         postId: post._id,
         content: 'It\'s good.',
         userId: hello._id,
         author: hello.username,
-        submited: new Date().getTime()
+        submited: getTime()
     });
     Posts.update(post._id, {$inc: {commentedCount: 1}});
 
     Notifies.insert({
+        commentUserName: "hello",
+        commentUserId: hello['_id'],
         userId: post.userId,
         postId: post._id,
         postTitle: post.title,
         msgNum: 0, // root.NOTIFIES
         read: false,
-        submited: new Date().getTime()
+        submited: getTime()
     });
-
-    // for(var i=0; i<20; i++){
-    //     Posts.insert({
-    //         title: 'Test ' + i,
-    //         content: 'Test content ' + i,
-    //         userId: hello._id,
-    //         author: hello.username,
-    //         visitedCount: i,
-    //         submited: new Date().getTime(),
-    //         lastModified: new Date().getTime(),
-    //         commentedCount: 0
-    //     });
-    // }
-}
+};
 
 if(process.env.NODE_ENV == 'development'){
-    if(Meteor.users.find().count() == 0)
+    if(Meteor.users.find().count() == 0) {
         initData();
+    }
 }
