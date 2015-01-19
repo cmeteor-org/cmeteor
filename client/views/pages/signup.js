@@ -4,7 +4,7 @@ Template.signup.events({
         var password = $('#password').val();
         var password1 = $('#password1').val();
         if (password != password1) {
-            return myhelp.throwError('两次密码不一致');
+            return root.throwError('两次密码不一致');
         }
     },
     'click #btn-signup-reset': function(e) {
@@ -18,14 +18,14 @@ Template.signup.events({
         var password = $('#password').val();
         var password1 = $('#password1').val();
 
-        if (!validStringLength(username, 5, 16, myhelp.throwError.bind(null, '用户名的长度应该在5-16之间！')))
+        if (!validStringLength(username, 5, 16, root.throwError.bind(null, '用户名的长度应该在5-16之间！')))
             return false;
-        if (!validEmailFormat(email, myhelp.throwError.bind(null, '输入的邮箱格式不对！')))
+        if (!validEmailFormat(email, root.throwError.bind(null, '输入的邮箱格式不对！')))
             return false;
-        if (!validStringLength(password, 5, 16, myhelp.throwError.bind(null, '密码的长度应该在5-16之间！')))
+        if (!validStringLength(password, 5, 16, root.throwError.bind(null, '密码的长度应该在5-16之间！')))
             return false;
         if (password !== password1) {
-            return myhelp.throwError('两次密码不一致');
+            return root.throwError('两次密码不一致');
         }
 
         Accounts.createUser({
@@ -35,7 +35,7 @@ Template.signup.events({
         }, function(err) {
             if (err) {
                 console.log('Meteor.methods signup:', err);
-                myhelp.throwError('创建用户失败！');
+                root.throwError('创建用户失败！');
             } else {
                 Router.go('index');
             }

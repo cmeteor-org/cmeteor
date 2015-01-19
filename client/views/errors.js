@@ -1,6 +1,6 @@
 Template.errors.helpers({
     errors: function(){
-        myhelp.clearErrors();
+        root.clearErrors();
         return Errors.find();
     }
 });
