@@ -22,13 +22,13 @@ Meteor.methods({
 Meteor.methods({
     postSubmit: function(title, content) {
         var user = Meteor.user();
-        if (!validStringLength(title, 2, 50, myhelp.throwError.bind(null, 403, '标题的长度应该在2-50之间！')))
+        if (!validStringLength(title, 2, 50, throwError.bind(null, 403, '标题的长度应该在2-50之间！')))
             return false;
-        if (!validStringLength(content, 10, 10000, myhelp.throwError.bind(null, 403, '正文的长度应该在10-10000之间！')))
+        if (!validStringLength(content, 10, 10000, throwError.bind(null, 403, '正文的长度应该在10-10000之间！')))
             return false;
 
         if (!user) {
-            myhelp.throwError(403, '必须登录！');
+            throwError(403, '必须登录！');
             return false;
         }
         var newPost = {
@@ -47,13 +47,13 @@ Meteor.methods({
         var user = Meteor.user();
         var post = Posts.findOne(id);
         var currentUserId = this.userId;
-        if (!validStringLength(title, 2, 50, myhelp.throwError.bind(null, 403, '标题的长度应该在2-50之间！')))
+        if (!validStringLength(title, 2, 50, throwError.bind(null, 403, '标题的长度应该在2-50之间！')))
             return false;
-        if (!validStringLength(content, 10, 10000, myhelp.throwError.bind(null, 403, '正文的长度应该在10-10000之间！')))
+        if (!validStringLength(content, 10, 10000, throwError.bind(null, 403, '正文的长度应该在10-10000之间！')))
             return false;
 
         if (!currentUserId || post.userId !== currentUserId) {
-            myhelp.throwError(403, '没有权限修改！');
+            throwError(403, '没有权限修改！');
             return false;
         }
 
@@ -86,16 +86,16 @@ Meteor.methods({
 Meteor.methods({
     'commentSubmit': function(content, postId) {
         var user = Meteor.user();
-        if (!validStringLength(content, 1, 1000, myhelp.throwError.bind(null, 403, '标题的长度应该在1-1000之间！')))
+        if (!validStringLength(content, 1, 1000, throwError.bind(null, 403, '标题的长度应该在1-1000之间！')))
             return false;
         if (!user) {
-            myhelp.throwError(403, '必须登录！');
+            throwError(403, '必须登录！');
             return false;
         }
 
         var post = Posts.findOne(postId);
         if (!post) {
-            myhelp.throwError(404, '评论的文章不存在！');
+            throwError(404, '评论的文章不存在！');
             return false;
         }
 
@@ -108,7 +108,7 @@ Meteor.methods({
         };
         return Comments.insert(newComment, function(err) {
             if (err) {
-                myhelp.throwError(500, '保存评论时出错！');
+                throwError(500, '保存评论时出错！');
                 return false;
             }
             Posts.update(postId, {
