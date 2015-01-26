@@ -7,12 +7,10 @@
                     <input id="ta-post-title" class="form-control" placeholder="标题（字数8字以上）">
                 </div>
                 <div class="submit-post-content">
-                    <div contenteditable="true" id="ta-post-content" class="form-control"></div>
+                    <div id="ta-post-content" class="form-control"></div>
                 </div>
             </div>
-            <div id="p-post-preview" style="display:none;" class="mk">
-                {{#markdown}}{{{markdown_data}}}{{/markdown}}
-            </div>
+            <div id="p-post-preview" style="display:none;" class="mk"></div>
             <button id="btn-post-submit" type="button" class="btn btn-default">发布</button>
             <button id="btn-post-preview" type="button" class="btn btn-default" value="preview">预览</button>
         </div>

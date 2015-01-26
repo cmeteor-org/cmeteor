@@ -2,15 +2,11 @@
   <div class="post-edit-row">
     <div class="post-edit-content">
       {{> errors}}
-        {{#with post}}
-        <input id="ta-post-title" class="form-control" value="{{title}}">
-        <div contenteditable="true" id="ta-post-content" class="form-control">{{content}}</div>
-        {{/with}}
-        <div id="p-post-preview" style="display:none;" class="mk">
-          {{#markdown}}{{{markdown_data}}}{{/markdown}}
-        </div>
+      <input id="ta-post-title" class="form-control">
+      <div id="ta-post-content" class="form-control"></div>
+      <div id="p-post-preview" style="display:none;" class="mk"></div>
       <button id="btn-post-edit" type="button" class="btn btn-default">重新发布</button>
       <button id="btn-post-preview" type="button" class="btn btn-default" value="preview">预览</button>
-    </div>
+      </div>
   </div>
 </template>
