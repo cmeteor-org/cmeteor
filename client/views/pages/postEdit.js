@@ -5,12 +5,12 @@ Template.postEdit.rendered = function() {
     $('#ta-post-title').val(onePost.title);
     postEditor.editor.setValue(onePost.content);
 };
-
-Template.postEdit.helpers({
-    post: function(){
-        return Posts.findOne(Router.current().params['id']);
-    }
-});
+//
+//Template.postEdit.helpers({
+//    post: function(){
+//        return Posts.findOne(Router.current().params['id']);
+//    }
+//});
 
 Template.postEdit.events({
     'click #btn-post-edit': function(e){
