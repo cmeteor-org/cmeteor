@@ -8,19 +8,19 @@ Template.login.events({
         var username = $('#username').val();
         var password = $('#password').val();
         if (username.length === 0 || password.length === 0) {
-            return root.throwError('输入有误！请重新输入！')
+            return throwError('输入有误！请重新输入！')
         }
         Meteor.call('isRegisted', username, function(err, isRegisted) {
             if (err) {
-                return root.throwError(err.reason)
+                return throwError(err.reason)
             }
             if (!isRegisted) {
-                return root.throwError('请先注册')
+                return throwError('请先注册')
             }
             Meteor.loginWithPassword(username, password, function(err){
                 if(err){
                     console.log(err.reason);
-                    root.throwError('输入有误！请重新输入！')
+                    throwError('输入有误！请重新输入！')
                 }else{
                     Router.go('index');
                 }
