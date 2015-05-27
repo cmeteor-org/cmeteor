@@ -1,16 +1,20 @@
 <template name="postEdit">
+{{#with postObj}}
   <div class="post-edit-row">
+    <div class="post-edit-title">
+      <input type="text" id="ta-post-title" class value="{{title}}">
+    </div>
+
     <div class="post-edit-content">
-      {{> errors}}
-        {{#with post}}
-        <input id="ta-post-title" class="form-control" value="{{title}}">
-        <div contenteditable="true" id="ta-post-content" class="form-control">{{content}}</div>
-        {{/with}}
-        <div id="p-post-preview" style="display:none;" class="mk">
-          {{#markdown}}{{{markdown_data}}}{{/markdown}}
+      <div class='markdown_editor in_editor'>
+        <div class='markdown_in_editor'>
+          <textarea id="editor" class='editor' name='t_content' rows='20' placeholder='文章支持 Markdown 语法, 请注意标记代码'>{{content}}</textarea>
         </div>
+      </div>
+    </div>
+    <div class="post-edit-btn">
       <button id="btn-post-edit" type="button" class="btn btn-default">重新发布</button>
-      <button id="btn-post-preview" type="button" class="btn btn-default" value="preview">预览</button>
     </div>
   </div>
+{{/with}}
 </template>

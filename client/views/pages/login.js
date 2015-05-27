@@ -1,26 +1,21 @@
 Template.login.events({
-    'click #btn-signup': function(e){
-        e.preventDefault();
-        Router.go('/signup');
-    },
     'click #btn-login': function(e){
         e.preventDefault();
         var username = $('#username').val();
         var password = $('#password').val();
         if (username.length === 0 || password.length === 0) {
-            return root.throwError('输入有误！请重新输入！')
+            return flushMsg('你调皮了, 填完数据再提交');
         }
         Meteor.call('isRegisted', username, function(err, isRegisted) {
             if (err) {
-                return root.throwError(err.reason)
+                return flushMsg(err.reason);
             }
             if (!isRegisted) {
-                return root.throwError('请先注册')
+                return flushMsg('请先注册');
             }
             Meteor.loginWithPassword(username, password, function(err){
                 if(err){
-                    console.log(err.reason);
-                    root.throwError('输入有误！请重新输入！')
+                    return flushMsg(err.reason);
                 }else{
                     Router.go('index');
                 }
@@ -28,8 +23,7 @@ Template.login.events({
         });
 
     },
-    'keydown': function(e){
-        if(e.keyCode == 13)
-            $('#btn-login').trigger('click')
+    'keydown #password': function(e){
+        if(e.keyCode == 13) $('#btn-login').trigger('click')
     }
 })

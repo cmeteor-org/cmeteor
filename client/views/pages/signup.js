@@ -1,32 +1,28 @@
 Template.signup.events({
-    'focusout #password1': function(e) {
-        e.preventDefault();
-        var password = $('#password').val();
-        var password1 = $('#password1').val();
-        if (password != password1) {
-            return root.throwError('两次密码不一致');
-        }
-    },
-    'click #btn-signup-reset': function(e) {
-        e.preventDefault();
-        $('input').val('');
-    },
     'click #btn-signup': function(e) {
         e.preventDefault();
+        var emailReg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var username = $('#username').val();
         var email = $('#email').val();
         var password = $('#password').val();
         var password1 = $('#password1').val();
 
-        if (!validStringLength(username, 5, 16, root.throwError.bind(null, '用户名的长度应该在5-16之间！')))
-            return false;
-        if (!validEmailFormat(email, root.throwError.bind(null, '输入的邮箱格式不对！')))
-            return false;
-        if (!validStringLength(password, 5, 16, root.throwError.bind(null, '密码的长度应该在5-16之间！')))
-            return false;
-        if (password !== password1) {
-            return root.throwError('两次密码不一致');
+        if (username.length < 5 || username.length > 16) {
+            return flushMsg('用户名的长度应该在5-16之间! ');
         }
+        if (!emailReg.test(email)) {
+            return flushMsg('请键入正确的邮箱');
+        }
+
+        if (password.length < 5 || password.length > 16) {
+            return flushMsg('密码的长度应该在5-16之间!');
+        }
+
+        if (password !== password1) {
+            return flushMsg('两次键入的密码不一致');
+        }
+
+        $('.account-input-group').find('input').val('');
 
         Accounts.createUser({
             username: username,
@@ -35,11 +31,10 @@ Template.signup.events({
         }, function(err) {
             if (err) {
                 console.log('Meteor.methods signup:', err);
-                root.throwError('创建用户失败！');
+                return flushMsg({heading: '抱歉', text: '创建用户失败, 请重新注册'});
             } else {
                 Router.go('index');
             }
-        })
-
+        });
     }
 });

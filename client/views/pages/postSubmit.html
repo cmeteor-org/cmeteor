@@ -1,20 +1,22 @@
 <template name="postSubmit">
     <div class="self-row">
         <div class="submit-post-main">
-            {{> errors}}
             <div class="user-post">
                 <div class="submit-post-title">
-                    <input id="ta-post-title" class="form-control" placeholder="标题（字数8字以上）">
+                    <input type="text" id="ta-post-title" class="form-control" placeholder="字数8字以上">
                 </div>
                 <div class="submit-post-content">
-                    <div contenteditable="true" id="ta-post-content" class="form-control"></div>
+                    <div class='markdown_editor in_editor'>
+                    <div class='markdown_in_editor'>
+                      <textarea id="editor" class='editor' name='t_content' rows='20' placeholder='文章支持 Markdown 语法, 请注意标记代码'></textarea>
+                    </div>
+                  </div>
                 </div>
             </div>
-            <div id="p-post-preview" style="display:none;" class="mk">
-                {{#markdown}}{{{markdown_data}}}{{/markdown}}
+            <div class="submit-btn">
+                <button id="btn-post-submit" type="button" class="btn btn-default">发布</button>
             </div>
-            <button id="btn-post-submit" type="button" class="btn btn-default">发布</button>
-            <button id="btn-post-preview" type="button" class="btn btn-default" value="preview">预览</button>
+            
         </div>
     </div>
 </template>
