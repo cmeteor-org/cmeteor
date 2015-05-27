@@ -9,7 +9,6 @@ accounts-base
 accounts-password
 showdown
 iron:router
-mizzao:bootstrap-3
 meteorhacks:kadira
 meteorhacks:zones
 multiply:iron-router-progress

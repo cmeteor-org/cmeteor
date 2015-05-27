@@ -2,25 +2,20 @@
   <div class="container">
   {{> errors}}
   {{#if currentUser }}
-  <div class="col-sm-9">
-	<strong>修改密码:</strong>
-	<fieldset>
-    <div class="form-group">
-	<label for='oldpassword'>输入旧密码：</label>
-	<input type='password' class="form-control" id="oldpassword" placeholder="输入旧密码">
+    <div class="user-reset-pwd">
+        <div class="form-group">
+	       <input type='password' class="form-control" id="oldpassword" placeholder="输入旧密码">
+        </div>
+        <div class="form-group">
+        	<input type='password' class="form-control" id="newpassword" placeholder="输入新密码">
+        </div>
+        <div class="form-group">
+        	<input type='password' class="form-control" id="newpassword1" placeholder="再输入一次新密码">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" id="btn-submit">提交</button>
+        </div>
     </div>
-    <div class="form-group">
-	<label for="newpassword">输入新密码：</label>
-	<input type='password' class="form-control" id="newpassword" placeholder="输入新密码">
-    </div>
-    <div class="form-group">
-	<label for="newpassword1">再次输入新密码：</label>
-	<input type='password' class="form-control" id="newpassword1" placeholder="再输入一次新密码">
-    </div>
-        <button type="submit" class="btn btn-default" id="btn-submit">提交</button>
-
-	</fieldset>
-  </div>
   {{else}}
 	<p> 请首先登录 </p>
   {{/if}}

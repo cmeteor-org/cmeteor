@@ -7,11 +7,9 @@
                         <strong>{{title}}</strong>
                     </div>
                     <div class="desc">
-                        <small>
-                            <span>{{author}} 发表于 {{fromNow}}</span>
-                            <span>浏览 {{visitedCount}} 次</span>
-                            <span>评论 {{commentedCount}} 次</span>
-                        </small>
+                        <span>{{author}} 发表于 {{fromNow}}</span>
+                        <span>浏览 {{visitedCount}} 次</span>
+                        <span>评论 {{commentedCount}} 次</span>
                         {{#if equal currentUser._id userId}}
                             <a class="float-right" href="/post/edit/{{_id}}">编辑</a>
                         {{/if}}
@@ -32,9 +30,7 @@
                         <p class="mk">{{#markdown}}{{content}}{{/markdown}}</p>
 
                         <div class="desc">
-                            <small>
-                                <span class="">{{author}} 回复于 {{fromNow}}</span>
-                            </small>
+                            <span class="">{{author}} 回复于 {{fromNow}}</span>
                         </div>
                     </div>
                 {{/each}}
@@ -42,11 +38,16 @@
         {{/if}}
         {{#if currentUser}}
             <div class="replay-main">
-                {{> errors}}
                 <div class="user-edit">
-                    <div id="ta-post-comment" class="edit-div" contenteditable="true"></div>
+                    <div class='markdown_editor in_editor'>
+                    <div class='markdown_in_editor'>
+                      <textarea id="editor" class='editor' name='t_content' rows='20' placeholder='文章支持 Markdown 语法, 请注意标记代码'></textarea>
+                    </div>
+                  </div>
                 </div>
-                <button id="btn-comment-submit" type="button" class="btn btn-default">回复</button>
+                <div class="reply-btn">
+                    <button id="btn-comment-submit" type="button" class="btn btn-default">评  论</button>    
+                </div>
             </div>
         {{/if}}
     </div>
