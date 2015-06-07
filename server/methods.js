@@ -35,7 +35,7 @@ Meteor.methods({
             title: title,
             content: content,
             userId: user._id,
-            author: user.username,
+            author: user.username || user.profile.name,
             visitedCount: 0,
             submited: getTime(),
             lastModified: getTime(),
@@ -68,7 +68,7 @@ Meteor.methods({
         var comemntsArr = Comments.find({postId: post._id}, {fields: {userId: 1}}).fetch();
         if (comemntsArr.length !== 0) {
             Notifies.insert({
-                commentUserName: user.username,
+                commentUserName: user.username || user.profile.name,
                 commenetUserId: user.userId,
                 userId: comemntsArr[0].userId,
                 postId: post._id,
@@ -103,7 +103,7 @@ Meteor.methods({
             postId: postId,
             content: content,
             userId: user._id,
-            author: user.username,
+            author: user.username || user.profile.name,
             submited: getTime()
         };
         return Comments.insert(newComment, function(err) {
@@ -119,7 +119,7 @@ Meteor.methods({
 
             if (newComment.userId !== post.userId) {
                 Notifies.insert({
-                    commentUserName: user.username,
+                    commentUserName: user.username || user.profile.name,
                     commenetUserId: user._id,
                     userId: post.userId,
                     postId: post._id,
