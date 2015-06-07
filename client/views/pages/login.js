@@ -23,6 +23,20 @@ Template.login.events({
         });
 
     },
+    'click #btn-login-github': function(e) {
+        e.preventDefault();
+
+        Meteor.loginWithGithub({
+          requestPermissions: ['user']
+        }, function (err) {
+            if (err) {
+                // Session.set('errorMessage', err.reason || 'Unknown error');
+                return flushMsg('Github 登陆出错：', err.reason);
+            }
+
+            Router.go('index');
+        });
+    },
     'keydown #password': function(e){
         if(e.keyCode == 13) $('#btn-login').trigger('click')
     }

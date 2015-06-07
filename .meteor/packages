@@ -7,10 +7,12 @@ standard-app-packages
 mrt:moment@2.6.0
 accounts-base
 accounts-password
-showdown
 iron:router
 meteorhacks:kadira
 meteorhacks:zones
 multiply:iron-router-progress
 
 less
+markdown
+accounts-github
+service-configuration
